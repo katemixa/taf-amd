@@ -17,7 +17,7 @@ public class BasePage {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     protected WebDriver driver;
-    protected final int WAIT_TIMEOUT_SECONDS = 10;
+    protected final int WAIT_TIMEOUT_SECONDS = 15;
 
     protected BasePage() {
         driver = DriverSingleton.getDriver();
