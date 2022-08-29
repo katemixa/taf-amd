@@ -44,7 +44,7 @@ public class MenuBlock extends BasePage {
         try {
             waitForVisibilityOfAllElements(categoriesList);
         } catch (TimeoutException e) {
-            LOGGER.info("Open new submenu item");
+            LOGGER.info("Categories not loaded. Open new submenu item");
             clickSubMenuItem();
         }
         categoryItem = categoriesList.get(RandomUtils.generateRandomNumber(categoriesList.size()));

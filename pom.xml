@@ -9,9 +9,13 @@
     <version>1.0.0</version>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <archetype.encoding>${encoding}</archetype.encoding>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <aspectj.version>1.9.5</aspectj.version>
         <allure-junit4.version>2.6.0</allure-junit4.version>
@@ -23,7 +27,6 @@
         <jackson-dataformat-yaml.version>2.10.1</jackson-dataformat-yaml.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-maven.report-version>2.6.0</allure-maven.report-version>
-        <excludedGroups></excludedGroups>
     </properties>
 
     <dependencies>

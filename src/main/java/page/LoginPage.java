@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
     public LoginPage authorize(User user) {
         LOGGER.info("Send text {} to text field {}", user.getEmail(), "email");
         inputUserEmail.sendKeys(user.getEmail());
-        LOGGER.info("Send text {} to text field {}", user.getPassword(), "pasword");
+        LOGGER.info("Send text {} to text field {}", user.getPassword(), "password");
         inputPassword.sendKeys(user.getPassword());
         return this;
     }
