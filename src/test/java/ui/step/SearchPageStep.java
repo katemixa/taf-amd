@@ -7,7 +7,7 @@ import page.SearchPage;
 public class SearchPageStep extends SearchPage {
 
     @Step("Open search, type query in input, check result")
-    public boolean hasSearchItemInResult(String query){
+    public boolean hasSearchItemInResult(String query) {
         return new HomePage().openPage()
                 .openMultiSearchFrame()
                 .typeSearchInput(query)

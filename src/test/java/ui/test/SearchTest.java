@@ -12,12 +12,12 @@ import static utils.Constants.PRODUCT_ID;
 public class SearchTest extends BaseTest {
 
     @Test
-    public void testSearchWithProductID(){
+    public void testSearchWithProductID() {
         Assert.assertTrue(new SearchPageStep().hasSearchItemInResult(PRODUCT_ID));
     }
 
     @Test
-    public void testSearchWithIncorrectQuery(){
+    public void testSearchWithIncorrectQuery() {
         Assert.assertFalse(new SearchPageStep().hasSearchItemInResult(RandomUtils.generateRandomSting()));
         Assert.assertEquals(EXPECTED_ERROR_SEARCH_MESSAGE, new SearchPage().getMessageNoResults());
     }

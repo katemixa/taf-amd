@@ -18,7 +18,7 @@ public class SearchPage extends AuthorizedHomePage {
     @FindBy(className = "multi-noResults")
     private WebElement noResultMessage;
 
-    private By itemContentLocator = By.className("multi-content");
+    private static final By ITEM_CONTENT_LOCATOR = By.className("multi-content");
 
     public SearchPage typeSearchInput(String query) {
         waitForVisibilityOfElement(inputMultiSearch);
@@ -29,9 +29,9 @@ public class SearchPage extends AuthorizedHomePage {
 
     public boolean hasItemInResultList(String query) {
         try {
-            waitForVisibilityOfAllElements(itemContentLocator);
+            waitForVisibilityOfAllElements(ITEM_CONTENT_LOCATOR);
             for (WebElement item : searchResult) {
-                if (item.findElement(itemContentLocator).getText().contains(query)) {
+                if (item.findElement(ITEM_CONTENT_LOCATOR).getText().contains(query)) {
                     LOGGER.info("Product {} found", query);
                     return true;
                 }

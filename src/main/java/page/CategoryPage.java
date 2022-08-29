@@ -24,12 +24,12 @@ public class CategoryPage extends BasePage {
     @FindBy(xpath = "//div[@class='list-group-item selected-options']")
     private WebElement selectedOptions;
 
-    private By checkboxBrandLocator = By.tagName("input");
+    private static final By CHECKBOX_BRAND_LOCATOR = By.tagName("input");
 
     public CategoryPage clickBrand() {
         max = Math.min(brands.size(), 4);
         brand = brands.get(RandomUtils.generateRandomNumber(max));
-        brand.findElement(checkboxBrandLocator).click();
+        brand.findElement(CHECKBOX_BRAND_LOCATOR).click();
         LOGGER.info("Select brand {}", brand.getText());
         product = new Product(brand.getText());
         return this;
