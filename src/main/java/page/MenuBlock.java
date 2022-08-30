@@ -40,7 +40,6 @@ public class MenuBlock extends BasePage {
     }
 
     public MenuBlock clickSubMenuItem() {
-        waitForVisibilityOfAllElements(sectionsList);
         submenuItem = sectionsList.get(RandomUtils.generateRandomNumber(sectionsList.size()));
         LOGGER.info("Open submenu {}", submenuItem.getText());
         jsClick(submenuItem);
