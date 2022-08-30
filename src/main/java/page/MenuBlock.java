@@ -32,10 +32,9 @@ public class MenuBlock extends BasePage {
 
     public MenuBlock clickMainMenuItem() {
         //waitForVisibilityOfAllElements(mainMenuItems);
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", firstMainMenuItems);
         //menuItem = mainMenuItems.get(0);
         LOGGER.info("Open menu {}", firstMainMenuItems.getText());
+        jsClick(firstMainMenuItems);
         //menuItem.click();
         return this;
     }
@@ -44,7 +43,7 @@ public class MenuBlock extends BasePage {
         waitForVisibilityOfAllElements(sectionsList);
         submenuItem = sectionsList.get(RandomUtils.generateRandomNumber(sectionsList.size()));
         LOGGER.info("Open submenu {}", submenuItem.getText());
-        submenuItem.click();
+        jsClick(submenuItem);
         return this;
     }
 
@@ -57,7 +56,7 @@ public class MenuBlock extends BasePage {
         }
         categoryItem = categoriesList.get(RandomUtils.generateRandomNumber(categoriesList.size()));
         LOGGER.info("Open category {}", categoryItem.findElement(NAME_CATEGORY_LOCATOR).getText());
-        categoryItem.click();
+        jsClick(categoryItem);
         return new CategoryPage();
     }
 }

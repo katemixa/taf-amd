@@ -3,10 +3,7 @@ package page;
 import driver.DriverSingleton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,12 +46,17 @@ public class BasePage {
         try {
             new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                     .visibilityOfAllElements(list));
-        } catch (ElementNotInteractableException e){
+        } catch (ElementNotInteractableException e) {
             System.out.println(e);
         }
     }
 
     protected void clearInput(WebElement webElement) {
         webElement.clear();
+    }
+
+    protected void jsClick(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", element);
     }
 }
