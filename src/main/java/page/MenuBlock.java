@@ -14,6 +14,9 @@ public class MenuBlock extends BasePage {
     WebElement submenuItem;
     WebElement categoryItem;
 
+    @FindBy(xpath = "//div[@class='item-category-block-view-pc']")
+    private WebElement MenuBlock;
+
     @FindBy(xpath = "//div[contains(@class, 'item-category-view-pc main-cats category_id')]")
     private List<WebElement> mainMenuItems;
 
@@ -27,7 +30,7 @@ public class MenuBlock extends BasePage {
 
     public MenuBlock clickMainMenuItem() {
         try {
-            waitForVisibilityOfAllElements(mainMenuItems);
+            waitForVisibilityOfElement(MenuBlock);
             menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
         } catch (TimeoutException e) {
             menuItem = mainMenuItems.get(0);
