@@ -1,6 +1,7 @@
 package page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,8 +18,8 @@ public class MenuBlock extends BasePage {
 //    @FindBy(xpath = "//div[@class='item-category-block-view-pc']")
 //    private WebElement MenuBlock;
 
-    @FindBy(css = ".item-category-view-pc.main-cats")
-    private List<WebElement> mainMenuItems;
+    @FindBy(id = "Category-0")
+    private WebElement firstMainMenuItems;
 
     @FindBy(xpath = "//section[contains(@style,'block')]//div[@class='item-section-view-pc']")
     private List<WebElement> sectionsList;
@@ -31,9 +32,11 @@ public class MenuBlock extends BasePage {
 
     public MenuBlock clickMainMenuItem() {
         //waitForVisibilityOfAllElements(mainMenuItems);
-        menuItem = mainMenuItems.get(0);
-        LOGGER.info("Open menu {}", menuItem.getText());
-        menuItem.click();
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", firstMainMenuItems);
+        //menuItem = mainMenuItems.get(0);
+        LOGGER.info("Open menu {}", firstMainMenuItems.getText());
+        //menuItem.click();
         return this;
     }
 
