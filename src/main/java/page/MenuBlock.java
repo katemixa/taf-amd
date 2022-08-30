@@ -35,7 +35,7 @@ public class MenuBlock extends BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        waitForVisibilityOfAllElements(mainMenuItems);
+        //waitForVisibilityOfAllElements(mainMenuItems);
         menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
         LOGGER.info("Open menu {}", menuItem.getText());
         menuItem.click();
