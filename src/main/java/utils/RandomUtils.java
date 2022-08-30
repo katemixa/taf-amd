@@ -12,8 +12,4 @@ public class RandomUtils {
     public static int generateRandomNumber(int max) {
         return new Random().nextInt(max);
     }
-
-    public static String generateRandomBoundary() {
-        return RandomStringUtils.randomAlphanumeric(16);
-    }
 }

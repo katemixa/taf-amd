@@ -32,11 +32,6 @@ public class BasePage {
                 .visibilityOf(webElement));
     }
 
-    protected WebElement waitForVisibilityOfElement(By locator) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
-                .until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-
     protected List<WebElement> waitForVisibilityOfAllElements(By locator) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                 .visibilityOfAllElementsLocatedBy(locator));

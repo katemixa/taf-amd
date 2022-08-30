@@ -27,7 +27,7 @@ public class CategoryPage extends BasePage {
     private static final By CHECKBOX_BRAND_LOCATOR = By.tagName("input");
 
     public CategoryPage clickBrand() {
-        max = Math.min(brands.size(), 4);
+        max = Math.min(brands.size()-1, 4);
         brand = brands.get(RandomUtils.generateRandomNumber(max));
         brand.findElement(CHECKBOX_BRAND_LOCATOR).click();
         LOGGER.info("Select brand {}", brand.getText());

@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    User user;
-
     @FindBy(id = "input-email")
     private WebElement inputUserEmail;
 
