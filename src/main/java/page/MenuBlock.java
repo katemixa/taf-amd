@@ -30,8 +30,8 @@ public class MenuBlock extends BasePage {
   //  private static final By MENU_BLOCK_LOCATOR = By.className("item-category-block-view-pc");
 
     public MenuBlock clickMainMenuItem() {
-        waitForVisibilityOfAllElements(mainMenuItems);
-        menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
+        //waitForVisibilityOfAllElements(mainMenuItems);
+        menuItem = mainMenuItems.get(0);
         LOGGER.info("Open menu {}", menuItem.getText());
         menuItem.click();
         return this;
