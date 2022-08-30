@@ -26,8 +26,12 @@ public class MenuBlock extends BasePage {
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
 
     public MenuBlock clickMainMenuItem() {
-        waitForVisibilityOfAllElements(mainMenuItems);
-        menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
+        try {
+            waitForVisibilityOfAllElements(mainMenuItems);
+            menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
+        } catch (TimeoutException e) {
+            menuItem = mainMenuItems.get(0);
+        }
         LOGGER.info("Open menu {}", menuItem.getText());
         menuItem.click();
         return this;
