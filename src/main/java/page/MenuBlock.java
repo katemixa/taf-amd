@@ -27,15 +27,16 @@ public class MenuBlock extends BasePage {
     private List<WebElement> categoriesList;
 
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
-    private static final By MENU_BLOCK_LOCATOR = By.className("item-category-block-view-pc");
+  //  private static final By MENU_BLOCK_LOCATOR = By.className("item-category-block-view-pc");
 
     public MenuBlock clickMainMenuItem() {
         try {
-            waitForVisibilityOfElement(MENU_BLOCK_LOCATOR);
-            menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
-        } catch (TimeoutException e) {
-            menuItem = mainMenuItems.get(0);
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+        waitForVisibilityOfAllElements(mainMenuItems);
+        menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
         LOGGER.info("Open menu {}", menuItem.getText());
         menuItem.click();
         return this;
