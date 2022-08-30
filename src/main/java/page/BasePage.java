@@ -4,6 +4,7 @@ import driver.DriverSingleton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +18,7 @@ public class BasePage {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     protected WebDriver driver;
-    protected final int WAIT_TIMEOUT_SECONDS = 15;
+    protected final int WAIT_TIMEOUT_SECONDS = 10;
 
     protected BasePage() {
         driver = DriverSingleton.getDriver();
@@ -44,9 +45,13 @@ public class BasePage {
                 .visibilityOfAllElementsLocatedBy(locator));
     }
 
-    protected List<WebElement> waitForVisibilityOfAllElements(List<WebElement> list) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
-                .visibilityOfAllElements(list));
+    protected void waitForVisibilityOfAllElements(List<WebElement> list) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
+                    .visibilityOfAllElements(list));
+        } catch (ElementNotInteractableException e){
+            System.out.println(e);
+        }
     }
 
     protected void clearInput(WebElement webElement) {
