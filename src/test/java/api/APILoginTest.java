@@ -7,7 +7,7 @@ import model.UserRequest;
 
 import static org.hamcrest.CoreMatchers.*;
 
-public class LoginTestAPI {
+public class APILoginTest {
 
     RequestFactory requestFactory = new RequestFactory();
 
