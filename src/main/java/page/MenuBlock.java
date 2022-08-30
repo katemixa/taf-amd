@@ -25,7 +25,6 @@ public class MenuBlock extends BasePage {
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
 
     public MenuBlock clickMainMenuItem() {
-        waitForVisibilityOfElement(firstMainMenuItems);
         LOGGER.info("Open menu {}", firstMainMenuItems.getText());
         jsClick(firstMainMenuItems);
         return this;
