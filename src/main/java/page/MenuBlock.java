@@ -17,7 +17,7 @@ public class MenuBlock extends BasePage {
 //    @FindBy(xpath = "//div[@class='item-category-block-view-pc']")
 //    private WebElement MenuBlock;
 
-    @FindBy(xpath = "//div[contains(@class, 'item-category-view-pc main-cats category_id')]")
+    @FindBy(css = ".item-category-view-pc.main-cats")
     private List<WebElement> mainMenuItems;
 
     @FindBy(xpath = "//section[contains(@style,'block')]//div[@class='item-section-view-pc']")
