@@ -29,7 +29,7 @@ public class SearchPage extends AuthorizedHomePage {
 
     public boolean hasItemInResultList(String query) {
         try {
-            waitForVisibilityOfAllElements(ITEM_CONTENT_LOCATOR);
+            waitForVisibilityOfElements(ITEM_CONTENT_LOCATOR);
             for (WebElement item : searchResult) {
                 if (item.findElement(ITEM_CONTENT_LOCATOR).getText().contains(query)) {
                     LOGGER.info("Product {} found", query);

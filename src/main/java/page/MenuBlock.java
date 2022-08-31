@@ -24,6 +24,7 @@ public class MenuBlock extends BasePage {
     private List<WebElement> categoriesList;
 
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
+    private static final By mainMenuContent = By.className("item-section-view-pc");
 
     public MenuBlock clickMainMenuItem() {
         LOGGER.info("Open menu {}", mainMenuItem.getText());
@@ -33,7 +34,7 @@ public class MenuBlock extends BasePage {
     }
 
     public MenuBlock clickSubMenuItem() {
-        waitForVisibilityOfElement(sectionsList.get(sectionsList.size()-1));
+        waitForPresenceOfAllElementsLocatedBy(mainMenuContent);
         submenuItem = sectionsList.get(RandomUtils.generateRandomNumber(sectionsList.size()));
         LOGGER.info("Open submenu {}", submenuItem.getText());
         jsClick(submenuItem);

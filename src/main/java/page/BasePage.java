@@ -32,6 +32,11 @@ public class BasePage {
                 .visibilityOf(webElement));
     }
 
+    protected WebElement waitForVisibilityOfElements(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
+                .visibilityOfElementLocated(locator));
+    }
+
     protected List<WebElement> waitForVisibilityOfAllElements(By locator) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                 .visibilityOfAllElementsLocatedBy(locator));
@@ -40,6 +45,11 @@ public class BasePage {
     protected List<WebElement> waitForVisibilityOfAllElements(List<WebElement> list) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                     .visibilityOfAllElements(list));
+    }
+
+    protected List<WebElement> waitForPresenceOfAllElementsLocatedBy(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
     protected void clearInput(WebElement webElement) {
