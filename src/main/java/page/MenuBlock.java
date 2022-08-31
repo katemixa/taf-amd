@@ -14,8 +14,8 @@ public class MenuBlock extends BasePage {
     WebElement submenuItem;
     WebElement categoryItem;
 
-    @FindBy(xpath = "//div[contains(@class,'item-category-view-pc main-cats')]")
-    private List<WebElement> mainMenuItems;
+    @FindBy(id = "Category-0")
+    private WebElement mainMenuItem;
 
     @FindBy(xpath = "//section[contains(@style,'block')]//div[@class='item-section-view-pc']")
     private List<WebElement> sectionsList;
@@ -26,9 +26,9 @@ public class MenuBlock extends BasePage {
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
 
     public MenuBlock clickMainMenuItem() {
-        menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
-        LOGGER.info("Open menu {}", menuItem.getText());
-        menuItem.click();
+        //menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
+        LOGGER.info("Open menu {}", mainMenuItem.getText());
+        mainMenuItem.click();
         //jsClick(menuItem);
         return this;
     }
