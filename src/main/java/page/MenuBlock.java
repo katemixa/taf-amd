@@ -10,11 +10,12 @@ import java.util.List;
 
 public class MenuBlock extends BasePage {
 
+    WebElement menuItem;
     WebElement submenuItem;
     WebElement categoryItem;
 
-    @FindBy(id = "Category-0")
-    private WebElement firstMainMenuItems;
+    @FindBy(xpath = "//div[contains(@class,'item-category-view-pc main-cats')]")
+    private List<WebElement> mainMenuItems;
 
     @FindBy(xpath = "//section[contains(@style,'block')]//div[@class='item-section-view-pc']")
     private List<WebElement> sectionsList;
@@ -25,13 +26,15 @@ public class MenuBlock extends BasePage {
     private static final By NAME_CATEGORY_LOCATOR = By.className("name");
 
     public MenuBlock clickMainMenuItem() {
-        waitForVisibilityOfElement(firstMainMenuItems);
-        LOGGER.info("Open menu {}", firstMainMenuItems.getText());
-        jsClick(firstMainMenuItems);
+        menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
+        LOGGER.info("Open menu {}", menuItem.getText());
+        menuItem.click();
+        //jsClick(menuItem);
         return this;
     }
 
     public MenuBlock clickSubMenuItem() {
+        waitForVisibilityOfAllElements(sectionsList);
         submenuItem = sectionsList.get(RandomUtils.generateRandomNumber(sectionsList.size()));
         LOGGER.info("Open submenu {}", submenuItem.getText());
         jsClick(submenuItem);
