@@ -37,13 +37,9 @@ public class BasePage {
                 .visibilityOfAllElementsLocatedBy(locator));
     }
 
-    protected void waitForVisibilityOfAllElements(List<WebElement> list) {
-        try {
-            new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
+    protected List<WebElement> waitForVisibilityOfAllElements(List<WebElement> list) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                     .visibilityOfAllElements(list));
-        } catch (ElementNotInteractableException e) {
-            System.out.println(e);
-        }
     }
 
     protected void clearInput(WebElement webElement) {
