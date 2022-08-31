@@ -28,8 +28,8 @@ public class MenuBlock extends BasePage {
     public MenuBlock clickMainMenuItem() {
         //menuItem = mainMenuItems.get(RandomUtils.generateRandomNumber(mainMenuItems.size()));
         LOGGER.info("Open menu {}", mainMenuItem.getText());
-        mainMenuItem.click();
-        //jsClick(menuItem);
+        //mainMenuItem.click();
+        jsClick(menuItem);
         return this;
     }
 
